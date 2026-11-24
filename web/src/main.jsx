@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import './style.css';
+import './controls.css';
 
 const empty = { invoices: [], sent: [], currency: '$', canBill: true };
-const resource = typeof GetParentResourceName === 'function' ? GetParentResourceName() : 'trendy_billing';
+const resource = typeof GetParentResourceName === 'function' ? GetParentResourceName() : 'billing_tablet';
 const nui = async (name, data = {}) => {
   const response = await fetch(`https://${resource}/${name}`, {
     method: 'POST',
@@ -67,7 +68,7 @@ function App() {
   return visible && <main id="tablet">
     <div className="camera" />
     <div className="screen">
-      <header><div className="brand"><span className="mark">T</span><div><strong>TRENDY</strong><small>BILLING SYSTEM</small></div></div><div className="header-right"><span>{clock}</span><button aria-label="Close tablet" onClick={() => nui('close')}>✕</button></div></header>
+      <header><div className="brand"><span className="mark">▣</span><div><strong>BILLING</strong><small>TABLET</small></div></div><div className="header-right"><span>{clock}</span><button className="close-button" aria-label="Close tablet" title="Close tablet" onClick={() => nui('close')}><span className="close-icon" aria-hidden="true" /><span>CLOSE</span></button></div></header>
       <div className="content">
         <aside>
           <div className="workspace">WORKSPACE <strong>{(data.job || 'Personal').toUpperCase()}</strong></div>

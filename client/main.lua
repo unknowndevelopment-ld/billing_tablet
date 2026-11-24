@@ -1,7 +1,7 @@
 local open = false
 
 local function refresh()
-    lib.callback('trendy_billing:getData', false, function(data)
+    lib.callback('billing_tablet:getData', false, function(data)
         if open then SendNUIMessage({ action = 'data', data = data }) end
     end)
 end
@@ -40,7 +40,7 @@ RegisterNUICallback('create', function(data, cb)
     if player == -1 or #(GetEntityCoords(PlayerPedId()) - GetEntityCoords(GetPlayerPed(player))) > Config.MaxDistance then
         return cb({ ok = false, message = 'That player is not nearby.' })
     end
-    lib.callback('trendy_billing:create', false, function(result)
+    lib.callback('billing_tablet:create', false, function(result)
         cb(result)
         lib.notify({ title = 'Billing', description = result.message, type = result.ok and 'success' or 'error' })
         if result.ok then refresh() end
@@ -48,14 +48,14 @@ RegisterNUICallback('create', function(data, cb)
 end)
 
 RegisterNUICallback('pay', function(data, cb)
-    lib.callback('trendy_billing:pay', false, function(result)
+    lib.callback('billing_tablet:pay', false, function(result)
         cb(result)
         lib.notify({ title = 'Billing', description = result.message, type = result.ok and 'success' or 'error' })
         refresh()
     end, data.id)
 end)
 
-RegisterNetEvent('trendy_billing:refresh', function(message)
+RegisterNetEvent('billing_tablet:refresh', function(message)
     if message then lib.notify({ title = 'Billing', description = message, type = 'inform' }) end
     if open then refresh() end
 end)

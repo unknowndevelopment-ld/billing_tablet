@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `trendy_invoices` (
+CREATE TABLE IF NOT EXISTS `billing_invoices` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `issuer` varchar(80) NOT NULL,
   `issuer_name` varchar(100) NOT NULL,

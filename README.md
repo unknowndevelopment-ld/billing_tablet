@@ -1,24 +1,26 @@
-# Trendy Billing
+# Billing Tablet
 
 An ESX Legacy billing tablet with a React/Vite UI. Press **F7** to invoice a nearby player or pay your own invoices from your bank account. Any job can issue invoices; there is no job allowlist.
 
 ## Install
 
-1. Import `sql/trendy_billing.sql` into your database.
+1. Import `sql/billing_tablet.sql` into your database.
 2. Put this folder in your server's `resources` directory.
-3. Start the dependencies before `trendy_billing`:
+3. Start the dependencies before `billing_tablet`:
 
 ```cfg
 ensure oxmysql
 ensure ox_lib
 ensure es_extended
 ensure esx_addonaccount
-ensure trendy_billing
+ensure billing_tablet
 ```
 
 The included `web/dist` is ready for FiveM. To edit the UI, run `npm install` and `npm run build` inside `web` after making changes to `web/src`.
 
 Resource files are grouped under `client/`, `server/`, `shared/`, `sql/`, and `web/`.
+
+If you installed the previous release and have saved invoices, rename its table before starting this version: `RENAME TABLE trendy_invoices TO billing_invoices;`. Existing installs should also rename the resource folder to `billing_tablet` and update the `ensure` line.
 
 ## Payment routing
 

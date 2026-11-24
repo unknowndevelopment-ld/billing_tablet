@@ -1,0 +1,13 @@
+.mark{font-size:20px}
+.close-button{display:flex;align-items:center;gap:9px;padding:9px 12px;border:1px solid #465675;border-radius:9px;background:linear-gradient(135deg,#253650,#1a273a);color:#dce8fb;font-size:10px;font-weight:700;letter-spacing:.12em;transition:background .15s,border-color .15s,transform .15s}
+.close-button:hover{background:#344c70;border-color:#7da4f5;transform:translateY(-1px)}
+.close-button:focus-visible{outline:2px solid #8db5ff;outline-offset:2px}
+.close-icon{position:relative;display:block;width:14px;height:14px}
+.close-icon::before,.close-icon::after{content:"";position:absolute;top:6px;left:0;width:14px;height:2px;border-radius:2px;background:currentColor}
+.close-icon::before{transform:rotate(45deg)}
+.close-icon::after{transform:rotate(-45deg)}
+.page,.content{scrollbar-width:thin;scrollbar-color:#5d83c0 #142034}
+.page::-webkit-scrollbar,.content::-webkit-scrollbar{width:9px}
+.page::-webkit-scrollbar-track,.content::-webkit-scrollbar-track{background:#142034;border-radius:10px}
+.page::-webkit-scrollbar-thumb,.content::-webkit-scrollbar-thumb{background:#5d83c0;border:2px solid #142034;border-radius:10px}
+.page::-webkit-scrollbar-thumb:hover,.content::-webkit-scrollbar-thumb:hover{background:#83a9e9}

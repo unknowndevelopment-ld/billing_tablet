@@ -2,7 +2,7 @@ fx_version 'cerulean'
 game 'gta5'
 lua54 'yes'
 
-name 'trendy_billing'
+name 'billing_tablet'
 description 'billing tablet'
 version '1.0.0'
 
